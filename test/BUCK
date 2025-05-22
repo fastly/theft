@@ -1,0 +1,12 @@
+# NB: these fail on my system, even with `make test`
+cxx_test(
+  name = "test-theft",
+  srcs = glob(["*.c"]),
+  headers = glob(["*.h"]),
+  header_namespace = "",
+  deps = [
+    "//:theft",
+    "//vendor:greatest",
+    "//:internal-headers",
+  ],
+)

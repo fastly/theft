@@ -1,0 +1,30 @@
+[cells]
+  root = .
+  prelude = prelude
+  toolchains = toolchains
+  none = none
+	fastly = external/buck2-util
+
+[cell_aliases]
+  config = prelude
+  ovr_config = prelude
+  fbcode = none
+  fbsource = none
+  fbcode_macros = none
+  buck = none
+
+# Uses a copy of the prelude bundled with the buck2 binary. You can alternatively delete this
+# section and vendor a copy of the prelude to the `prelude` directory of your project.
+[external_cells]
+  prelude = bundled
+	fastly = git
+
+[external_cell_fastly]
+	git_origin = git@github.com:fastly/buck2-util.git
+	commit_hash = 49e40ed8dc44e360caaf14dff59e09c78ec85f80
+
+[parser]
+  target_platform_detector_spec = target:root//...->prelude//platforms:default
+
+[build]
+  execution_platforms = prelude//platforms:default

@@ -1,0 +1,6 @@
+prebuilt_cxx_library(
+  name = "greatest",
+  exported_headers = ["greatest.h"],
+  header_namespace = "",
+  visibility = ["//test/..."],
+)
