@@ -7,6 +7,10 @@ cxx_library(
   headers = splat_headers(["src/*.h"]),
   srcs = glob(["src/*.c"]),
   visibility = ["PUBLIC"],
+  compiler_flags = [
+    "-fPIE",
+  ],
+  linker_flags = ["-lm"],
 )
 
 prebuilt_cxx_library(
